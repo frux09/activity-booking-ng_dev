@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivitiesService } from 'src/app/data/activities.service';
 
 @Component({
   selector: 'app-activity-new',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./activity-new.component.css']
 })
 export class ActivityNewComponent {
+  constructor(private activitiesService: ActivitiesService) {}
 
+  onSubmit() {
+    console.log('Form submitted!');
+    // this.activitiesService.postActivity();
+  }
 }

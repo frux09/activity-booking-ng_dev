@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Activity } from '../data/activity.type';
+import { ActivitiesService } from '../data/activities.service';
 
 @Component({
   selector: 'app-activities',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./activities.component.css']
 })
 export class ActivitiesComponent {
+  allActivities: Activity[] = []; // this.activitiesService.getAllActivities();
 
+  constructor(private activitiesService: ActivitiesService) {
+    // this.allActivities = activitiesService.getAllActivities();
+  }
+
+  ngOnInit(): void {
+    this.allActivities = this.activitiesService.getAllActivities();
+  }
 }

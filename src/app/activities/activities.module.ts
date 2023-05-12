@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ActivitiesRoutingModule } from './activities-routing.module';
 import { ActivitiesComponent } from './activities.component';
+import { ActivitiesService } from '../data/activities.service';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ActivitiesComponent } from './activities.component';
   imports: [
     CommonModule,
     ActivitiesRoutingModule
-  ]
+  ],
+  providers: [ActivitiesService],
 })
 export class ActivitiesModule { }

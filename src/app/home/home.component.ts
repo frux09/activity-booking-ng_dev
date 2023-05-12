@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ACTIVITIES } from '../data/activities.data';
+import { ActivitiesService } from '../data/activities.service';
+import { Activity } from '../data/activity.type';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { ACTIVITIES } from '../data/activities.data';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  publishedActivities = ACTIVITIES.filter((a) => a.state === 'published');
+  publishedActivities: Activity[] = [];
   private sortOrder: number = 1;
 
+  constructor(private activitiesService: ActivitiesService) {
+    this.publishedActivities = activitiesService.getPublishedActivities();
+  }
 
   onSort() {
     this.sortOrder = this.sortOrder * -1;
@@ -17,8 +21,9 @@ export class HomeComponent {
   }
 
   private sortActivities() {
-    this.publishedActivities.sort(
-      (a, b) => (a.price - b.price) * this.sortOrder
+    this.activitiesService.sortByPrice(
+      this.publishedActivities,
+      this.sortOrder
     );
   }
 }
