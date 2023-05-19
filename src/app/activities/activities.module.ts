@@ -12,7 +12,7 @@ import { ActivitiesService } from '../data/activities.service';
   ],
   imports: [
     CommonModule,
-    ActivitiesRoutingModule
+    ActivitiesRoutingModule,
   ],
   providers: [ActivitiesService],
 })

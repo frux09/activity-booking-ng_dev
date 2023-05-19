@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ActivityNewRoutingModule } from './activity-new-routing.module';
 import { ActivityNewComponent } from './activity-new.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ActivityNewComponent } from './activity-new.component';
   ],
   imports: [
     CommonModule,
-    ActivityNewRoutingModule
+    ActivityNewRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ActivityNewModule { }
